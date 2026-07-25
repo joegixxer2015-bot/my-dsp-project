@@ -34,17 +34,17 @@ const char INDEX_HTML[] PROGMEM = R"rawliteral(
         </div>
 
         <div class="slider-group">
-            <label>🎸 Bass (เบส): <span id="bassVal">1.0</span>x</label>
+            <label>🎸 Bass: <span id="bassVal">1.0</span>x</label>
             <input type="range" id="bass" min="0" max="2" step="0.1" value="1.0" oninput="updateDSP()">
         </div>
 
         <div class="slider-group">
-            <label>🎤 Mid (เสียงร้อง): <span id="midVal">1.0</span>x</label>
+            <label>🎤 Mid: <span id="midVal">1.0</span>x</label>
             <input type="range" id="mid" min="0" max="2" step="0.1" value="1.0" oninput="updateDSP()">
         </div>
 
         <div class="slider-group">
-            <label>🎼 Treble (แหลม): <span id="trebleVal">1.0</span>x</label>
+            <label>🎼 Treble: <span id="trebleVal">1.0</span>x</label>
             <input type="range" id="treble" min="0" max="2" step="0.1" value="1.0" oninput="updateDSP()">
         </div>
 
