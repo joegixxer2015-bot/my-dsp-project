@@ -11,7 +11,6 @@ typedef struct struct_message {
     bool buttonState; 
 } struct_message;
 
-// ฟังก์ชัน Callback แบบยืดหยุ่น compatible ทุกเวอร์ชัน
 inline void OnDataRecv(const uint8_t * mac_addr, const uint8_t *incomingData, int len) {
     struct_message receivedData;
     memcpy(&receivedData, incomingData, sizeof(receivedData));
@@ -34,7 +33,6 @@ inline void setupESPNow() {
         return;
     }
 
-    // ใช้การ Cast Type เป็น esp_now_recv_cb_t เพื่อบังคับรองรับทุกเวอร์ชัน
     esp_now_register_recv_cb((esp_now_recv_cb_t)OnDataRecv);
     Serial.println("ESP-NOW Receiver Ready!");
 }
