@@ -5,7 +5,6 @@
 #include <WebServer.h>
 #include "dsp/dsp_core.h"
 
-// ประกาศแบบ extern เพื่อใช้ตัวแปร server ร่วมกับ main.cpp
 extern WebServer server;
 
 const char INDEX_HTML[] PROGMEM = R"rawliteral(
