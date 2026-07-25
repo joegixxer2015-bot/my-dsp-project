@@ -3,10 +3,8 @@
 #include "web_server.h"
 #include "esp_now_rx.h"
 
-// 1. ประกาศสร้าง Instance ตัวแปร dspConfig ตรงนี้ (สำคัญมาก!)
+// ตัวแปรระดับ Global ประกาศครั้งเดียวที่นี่
 DSPConfig dspConfig;
-
-// 2. ประกาศ WebServer
 WebServer server(80);
 
 void setup() {
@@ -14,19 +12,18 @@ void setup() {
     delay(1000);
     Serial.println("--- ESP32-S3 DSP & ESP-NOW Initializing ---");
 
-    initI2S();          // สั่งเปิดระบบเสียง 4 Channels
-    setupWebServer();   // สั่งเปิดระบบ Web UI ผ่าน Wi-Fi
-    setupESPNow();      // สั่งเปิดระบบรับค่าไร้สาย ESP-NOW จาก C3
+    initI2S();          
+    setupWebServer();   
+    setupESPNow();      
 
-    // พิมพ์ MAC Address ของ S3 ออกมาทาง Serial Monitor
     Serial.print("ESP32-S3 MAC Address: ");
     Serial.println(WiFi.macAddress());
 }
 
 void loop() {
-    server.handleClient(); // รันระบบ Web UI
+    server.handleClient();
     
     if (!dspConfig.isMuted) {
-        generateAudioTone(); // รันระบบประมวลผลเสียง DSP
+        generateAudioTone();
     }
 }
