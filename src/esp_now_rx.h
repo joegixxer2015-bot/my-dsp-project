@@ -11,8 +11,8 @@ typedef struct struct_message {
     bool buttonState; 
 } struct_message;
 
-// ปรับให้รองรับ callback ของ ESP-NOW ทุกเวอร์ชัน
-inline void OnDataRecv(const uint8_t * mac_addr, const uint8_t *incomingData, int len) {
+// ปรับให้รองรับ Callback ของ ESP32 Arduino Core V3.x
+inline void OnDataRecv(const esp_now_recv_info *info, const uint8_t *incomingData, int len) {
     struct_message receivedData;
     memcpy(&receivedData, incomingData, sizeof(receivedData));
 
@@ -34,7 +34,7 @@ inline void setupESPNow() {
         return;
     }
 
-    esp_now_register_recv_cb(esp_now_recv_cb_t(OnDataRecv));
+    esp_now_register_recv_cb(OnDataRecv);
     Serial.println("ESP-NOW Receiver Ready!");
 }
 
