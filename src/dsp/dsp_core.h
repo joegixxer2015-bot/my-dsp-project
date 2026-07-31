@@ -4,10 +4,10 @@
 #include <Arduino.h>
 #include "driver/i2s.h"
 
-#define I2S_BCK_PIN   4  
-#define I2S_LRCK_PIN  5  
-#define I2S_DOUT1_PIN 6  
-#define I2S_DOUT2_PIN 7  
+#define I2S_BCK_PIN   15  
+#define I2S_LRCK_PIN  16 
+#define I2S_DOUT1_PIN 17
+#define I2S_DOUT2_PIN 18
 
 struct DSPConfig {
     float masterVolume = 0.8f;
